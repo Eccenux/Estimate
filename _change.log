@@ -1,0 +1,33 @@
+== in the making ==
+
+== planned ==
+
+# pobieranie zg³oszeñ z bugz: temat, opis, ew. kategoria, przydzia³ (bie¿¹cy)
+# pobieranie/ustalanie metadanych z bugz: bazowy link zg³oszeñ, nazwa serwisu zg³oszeñ, skrót zg³oszenia (np.: "RZ#%bug_id%")
+
+# dopisywanie czasu do zg³oszenia (w ramach aplikacji)
+
+# konfiguracja listy przydzia³ów
+## budowanie na podstawie danych z bugz
+## mo¿liwoœæ dodawania nowych i usuwania
+# dopisywanie przydzia³ów do zg³oszenia (w ramach aplikacji)
+
+# mobilna wersja FS
+## Skórka lub CSS (media query) lub CSS na parametr.
+## Mocno uproszczony formularz.
+## W podgl¹dzie uk³ad góra/dó³, a nie lewo/prawo.
+
+== 0.1.0 ==
+# pole do wpisywania z przyciskiem kasowania
+# cyferblat
+# switch z jednostk¹
+
+== 0.2.0 ==
+# przyciski +/-.
+# przyciskowa wersja wyboru jednostki (³adniej siê uk³ada).
+# clear i bkspc na dole, ¿eby ³atwiej by³o siêgn¹æ.
+# usuniêcie nag³owka, ¿eby nie zajmowa³ miejsca.
+
+== 0.2.1 ==
+# Akcje na prawo.
+# Obramowania

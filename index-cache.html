@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--
+	mEstimate - tree saver for task estimating
+
+    Copyright:  ©2012 Maciej "Nux" Jaros
+	  License:  CC-BY-SA
+	            http://creativecommons.org/licenses/by-sa/3.0/
+	
+	Libraries Copyright and License in the JS files.
+	
+	see: #page-about
+-->
+<html manifest="cache.manifest">
+<head>
+    <title>mEstimate 0.2.1c</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<meta charset="UTF-8">
+
+	<meta name="author" content="Maciej Jaros">
+	<meta name="copyright" content="Maciej Jaros++ (See source)">
+	
+	<!-- app icons -->
+	<link rel="shortcut icon" href="./logo/logo.ico">
+	<link rel="apple-touch-icon" href="logo/logo072.png" sizes="72x72">
+	<link rel="apple-touch-icon" href="logo/logo080.png" sizes="80x80">
+	<link rel="apple-touch-icon" href="logo/logo114.png" sizes="114x114">
+	<link rel="apple-touch-icon" href="logo/logo128.png">
+
+	<!-- jQuery base -->
+	<link rel="stylesheet" href="lib/base/jquery.mobile-min.css">
+	<script type="text/javascript" src="lib/json2.js"></script>
+	<script type="text/javascript" src="lib/base/jquery-min.js"></script>
+
+	<!-- jQuery and other libs -->
+	<script type="text/javascript" src="lib/libs.comb.js"></script>
+
+	<!-- this gadget -->
+	<link rel="stylesheet" href="./mJqmApplication.css">
+	<script type="text/javascript" src="./mJqmApp.mini.js"></script>
+	<!--
+	For quick testing just uncomment below and comment the line with the script in _packaging.php
+	<script type="text/javascript" src="./mJqmApplication.controller.js"></script>
+	-->
+	
+	<!-- jQuery mobile (must be here for mobile...options to work) -->
+	<script type="text/javascript" src="lib/jquery.mobile.multifooter.js"></script>
+	<script type="text/javascript" src="lib/base/jquery.mobile-min.js"></script>
+</head>
+<body lang="pl">
+
+<!--
+	Model page = start page
+-->	
+<div data-role="page" id="page-start">
+
+	<div data-role="header">
+		<h1 data-i18n-key="title-application" style="display:none">Szacowanie</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<form action="index.html" method="GET" data-ajax="false" id="start-form">
+				<div style="text-align:center; font-size:45pt; padding:0;">
+					<span id="estamination-number">1</span>
+					<span id="estamination-scale">h</span>
+				</div>
+				
+				<!-- dial -->
+				<div class="ui-grid-c dial ui-corner-all ui-btn-up-c" style="border:1px solid #999; margin-top:.5em">
+					<div class="ui-block-a">
+						<input type="button" value="7" />
+					</div>
+					<div class="ui-block-b">
+						<input type="button" value="8" />
+					</div>
+					<div class="ui-block-c">
+						<input type="button" value="9" />
+					</div>
+					<div class="ui-block-d">
+						<a data-role="button" data-icon="arrow-l" data-iconpos="top" value="" data-operation="bkspc" data-theme="e"></a>
+					</div>
+					<div class="ui-block-a">
+						<input type="button" value="4" />
+					</div>
+					<div class="ui-block-b">
+						<input type="button" value="5" />
+					</div>
+					<div class="ui-block-c">
+						<input type="button" value="6" />
+					</div>
+					<div class="ui-block-d">
+						<a data-role="button" data-icon="delete" data-iconpos="top" value="" data-operation="clear" data-theme="e"></a>
+					</div>
+					<div class="ui-block-a">
+						<input type="button" value="1" />
+					</div>
+					<div class="ui-block-b">
+						<input type="button" value="2" />
+					</div>
+					<div class="ui-block-c">
+						<input type="button" value="3" />
+					</div>
+					<div class="ui-block-d">
+						<a data-role="button" data-icon="minus" data-iconpos="top" value="" data-operation="-" data-theme="e"></a>
+					</div>
+					<div class="ui-block-a">
+						<input type="button" value="0" />
+					</div>
+					<div class="ui-block-b">
+						<input type="button" value="." />
+					</div>
+					<div class="ui-block-c">
+					</div>
+					<div class="ui-block-d">
+						<a data-role="button" data-icon="plus" data-iconpos="top" value="" data-operation="+" data-theme="e"></a>
+					</div>
+				</div>
+
+				<!-- scale-chooser -->
+				<div class="ui-grid-b scale-chooser ui-corner-all ui-btn-up-c" style="border:1px solid #999; margin-top:.5em">
+					<div class="ui-block-a">
+						<input name="scale-chooser1" value="h" type="button">
+					</div>
+					<div class="ui-block-b">
+						<input name="scale-chooser2" value="dni" type="button">
+					</div>
+					<div class="ui-block-c">
+						<input name="scale-chooser3" value="tyg." type="button">
+					</div>
+				</div>
+		</form>
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+<!--
+	About page
+-->	
+<div data-role="page" id="page-about">
+
+	<div data-role="header">
+		<h1>
+			<span data-lang="en">About</span>
+			<span data-lang="pl">O programie</span>
+		</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	
+		<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+			<div data-role="collapsible" data-collapsed="true">
+				<h2>
+					<span data-lang="pl">Warunki użytkowania</span>
+					<span data-lang="en">Terms of usage</span>
+				</h2>
+				<div data-lang="pl">
+					<p>Copyright &copy; 2012 Maciej "Nux" Jaros.</p>
+					<p>Licencja <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">CC-BY-SA</a></p>
+					<p>Informacje na temat autorów i licencji dla poszczególnych bibliotek znajdują się w odpowiednich plikach JS oraz CSS.</p>
+				</div>
+				<div data-lang="en">
+					<p>Copyright &copy; 2012 Maciej "Nux" Jaros.</p>
+					<p>License <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">CC-BY-SA</a></p>
+					<p>Libraries copyright and license information is avaiable in the JS and CSS files.</p>
+				</div>
+			</div>
+			<div data-role="collapsible" data-collapsed="false">
+				<h2>
+					<span data-lang="pl">Pytania i odpowiedzi</span>
+					<span data-lang="en">FAQ</span>
+				</h2>
+				<div data-role="collapsible-set" data-theme="d" data-content-theme="d">
+					<div data-role="collapsible">
+						<h3>
+							<span data-lang="pl">Dlaczego nie działa zapis?</span>
+							<span data-lang="en">Why doesn't my data get saved?</span>
+						</h3>
+						<div data-lang="pl">
+							<p>Jeśli nie działa zapis, to najprawdopodobniej Twoja komórka nie obsługuje skryptów JavaScript lub ma ich obsługę wyłączoną. Program wymaga JavaScript do poprawnego działania.</p>
+						</div>
+						<div data-lang="en">
+							<p>If saving doesn't work then your cellphone doesn't have JavaScript enabled. This application needs JavaScript to work properly.</p>
+						</div>
+					</div>
+					<!--
+					<div data-role="collapsible">
+						<h3>
+							<span data-lang="pl">Pytanie?</span>
+							<span data-lang="en">Question?</span>
+						</h3>
+						<div data-lang="pl">
+							<p>Odp.</p>
+						</div>
+						<div data-lang="en">
+							<p>Ans.</p>
+						</div>
+					</div>
+					-->
+				</div>
+			</div>
+		</div>
+
+	</div><!-- /content -->
+	
+</div><!-- /page -->
+
+<!--
+	Settings page
+-->	
+<div data-role="page" id="page-settings">
+
+	<div data-role="header">
+		<a href="index.html" data-icon="delete" data-rel="back">
+			<span data-lang="en">Cancel</span>
+			<span data-lang="pl">Anuluj</span>
+		</a>
+		<h1>
+			<span data-lang="en">Settings</span>
+			<span data-lang="pl">Ustawienia</span>
+		</h1>
+		<a href="index.html" data-icon="check" data-theme="b" id="settings-submit-btn">
+			<span data-lang="en">Save</span>
+			<span data-lang="pl">Zapisz</span>
+		</a>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		
+		<form action="index.html" method="GET" data-ajax="false" id="settings-form">
+			<!--
+				@see mJqmApplication.controller.settings
+			-->
+		</form>
+	</div><!-- /content -->
+	
+</div><!-- /page -->
+
+<!--
+	Extra footer attributes:
+		data-footer-pages-exclude	Space separated list of page ids on which this footer should not to be copied to.
+		data-footer-pages-include	Space separated list of page ids on which this footer is to be copied to. If not used or empty then all pages will have this footer.
+		data-id (needed for JQM) is added automatically
+-->
+<div data-role="multipagefooter" data-position="fixed" data-id="main-navi">
+	<div data-role="navbar">
+		<ul>
+			<!--
+			<li><a href="index.html" data-icon="back" data-rel="back">
+				<span data-lang="en">Back</span>
+				<span data-lang="pl">Powrót</span>
+			</a></li>
+			-->
+			<li><a href="#page-start" data-icon="home" data-i18n-key="title-application">Szacowanie</a></li>
+			<li><a href="#page-settings" data-icon="gear">
+				<span data-lang="pl">Ustawienia</span>
+				<span data-lang="en">Settings</span>
+			</a></li>
+			<li><a href="#page-about" data-icon="info">
+				<span data-lang="en">Help</span>
+				<span data-lang="pl">Pomoc</span>
+			</a></li>
+		</ul>
+	</div>
+</div><!-- /footer -->
+
+</body>
+</html>
