@@ -122,26 +122,26 @@
 		// dial
 		$('#start-form .dial input[type=button]').each(function()
 		{
-			this.onclick = function()
+			$(this).bind('vclick', function()
 			{
 				$('#estamination-number').append(this.value);
-			};
+			});
 		});
 
 		// bkspc
-		$('[data-operation=bkspc]').click(function()
+		$('[data-operation=bkspc]').bind('vclick', function()
 		{
 			var number = $('#estamination-number').text();
 			number = number.substr(0, number.length-1);
 			$('#estamination-number').html(number);
 		});
 		// clear
-		$('[data-operation=clear]').click(function()
+		$('[data-operation=clear]').bind('click', function()
 		{
 			$('#estamination-number').html("");
 		});
 		// +/-
-		$('[data-operation="+"],[data-operation="-"]').click(function()
+		$('[data-operation="+"],[data-operation="-"]').bind('vclick', function()
 		{
 			try
 			{
